@@ -21,7 +21,7 @@ class UserTour(models.Model):
         NO_TOUR = 'no-tour', _('Do not show user tour')
 
     course_home_tour_status = models.CharField(
-        max_length=50, choices=CourseHomeChoices.choices, default=CourseHomeChoices.NEW_USER_TOUR
+        max_length=50, choices=CourseHomeChoices.choices, default=CourseHomeChoices.NO_TOUR
     )
-    show_courseware_tour = models.BooleanField(default=True)
+    show_courseware_tour = models.BooleanField(default=False)
     user = models.OneToOneField(User, related_name='tour', on_delete=models.CASCADE)
